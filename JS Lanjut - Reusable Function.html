@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reusable Function</title>
+  </head>
+  <body>
+    <script>
+      /*
+      REUSABLE FUNCTION
+      */
+
+      /*
+      1. Array Map
+      mengembalikan array baru. Nilai tiap item pada array yang dikembalikan, dihasilkan dari kembalian callback function-nya. Karena callback function dapat mengakses item array, biasanya developer menggunakannya untuk menghasilkan nilai baru.
+      */
+      const newArray = ["Harry", "Ron", "Jeff", "Thomas"].map((name) => {
+        return `${name}!`;
+      });
+      console.log(newArray);
+      /*
+      2. Array Filter
+      fungsi ini harus mengembalikan boolean. Di mana nilai boolean ini digunakan untuk menentukan apakah item array lolos saring atau tidak.
+      
+      Sama seperti fungsi map(), fungsi filter() juga akan mengembalikan array yang telah disaring dalam bentuk array baru.
+      */
+      const students = [
+        {
+          name: "Harry",
+          score: 60,
+        },
+        {
+          name: "James",
+          score: 88,
+        },
+        {
+          name: "Ron",
+          score: 90,
+        },
+        {
+          name: "Bethy",
+          score: 75,
+        },
+      ];
+      const eligibleForScholarshipStudents = students.filter((student) => student.score > 85);
+      console.log(eligibleForScholarshipStudents);
+      /*
+      3. Array Reduce
+      digunakan untuk mengeksekusi fungsi reducer pada setiap elemen array dan hanya mengembalikan output satu nilai saja.
+      */
+      const students1 = [
+        {
+          name: "Harry",
+          score: 60,
+        },
+        {
+          name: "James",
+          score: 88,
+        },
+        {
+          name: "Ron",
+          score: 90,
+        },
+        {
+          name: "Bethy",
+          score: 75,
+        },
+      ];
+      const totalScore = students1.reduce((acc, student) => acc + student.score, 0);
+      console.log(totalScore);
+      /*
+      4. Array some
+      Nilai yang dihasilkan didasarkan pada pernyataan apakah ada setidaknya satu dari deretan nilai dalam array tersebut lolos berdasarkan kriteria yang kita tuliskan dalam callback function.
+      */
+      const array = [1, 2, 3, 4, 5];
+      const even = array.some((element) => element % 2 === 0);
+      console.log(even);
+      /*
+      5. Array find
+      find akan menghasilkan satu nilai dari elemen yang pertama kali ditemukan berdasarkan kriteria tertentu dan akan menghasilkan nilai undefine bila tidak ada kriteria yang terpenuhi pada item array.
+      */
+      const students2 = [
+        {
+          name: "Harry",
+          score: 60,
+        },
+        {
+          name: "James",
+          score: 88,
+        },
+        {
+          name: "Ron",
+          score: 90,
+        },
+        {
+          name: "Bethy",
+          score: 75,
+        },
+      ];
+      const findJames = students2.find((student) => student.name === "James");
+      console.log(findJames);
+      /*
+      6. Array sort
+      melakukan pengurutan nilai dari sebuah deretan nilai. Secara default, fungsi sort akan mengubah semua nilai dalam deretan menjadi bentuk string dan mengurutkannya secara ascending.
+      */
+      const array1 = [1, 30, 4, 1000];
+      const compareNumber = (a, b) => {
+        return a - b;
+      };
+      const sorting = array1.sort(compareNumber);
+      console.log(sorting);
+      //output [ 1, 4, 30, 1000 ]
+      /*
+      7. Array every
+      mengecheck apakah semua nilai dari sebuah array sesuai dengan kriteria yang didefinisikan. Kembalian dari array.every() adalah nilai Boolean.
+      */
+      const scores = [70, 85, 90];
+      const minimumScore = 65;
+      const examPassed = scores.every((score) => score >= minimumScore);
+      console.log(examPassed);
+    </script>
+  </body>
+</html>

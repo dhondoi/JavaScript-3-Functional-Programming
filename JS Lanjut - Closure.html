@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLOSURE</title>
+  </head>
+  <body>
+    <script>
+      // 1. Execution Context
+      // ada 2 fase : creation dan execution
+      // console.log(b);
+      // var b = "b";
+      // creation phase pada Global Context
+      // nama var = undefined
+      // nama function = fn()
+      // inilah konsep hoisting
+      // awal mula js berjalan
+      // window = global object
+      // this = window
+      // execution phase
+      // 2. Hoisting
+      // 3. Scope
+      // 4. Closure
+      (() => {
+        // private variabel
+        let nama = "doni";
+        let total;
+        let a;
+        let b;
+        // ambil nama dari private method
+        getName2 = function getName2() {
+          return getName22();
+        };
+        //public method
+        getName = () => {
+          return nama;
+        };
+        // private method
+        function getName22() {
+          return nama;
+        }
+        // coba hitung angka
+        setNumber = function setNumber(param1, param2) {
+          a = param1;
+          b = param2;
+        };
+        function calcNumber() {
+          total = a + b;
+        }
+        getTotal = function getTotal() {
+          calcNumber();
+          return total;
+        };
+      })();
+      console.log(this);
+    </script>
+  </body>
+</html>
